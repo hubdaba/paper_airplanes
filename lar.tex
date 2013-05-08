@@ -1,3 +1,4 @@
+
 %% This is an example first chapter.  You should put chapter/appendix that you
 %% write into a separate file, and add a line \include{yourfilename} to
 %% main.tex, where `yourfilename.tex' is the name of the chapter/appendix file.
@@ -22,9 +23,10 @@ bending stress.
 A lot of research about low aspect ratio aircrafts were done in the form of
 micro-air vechicle research. This has the most relevance with paper airplanes because
 micro-air vehicles operate on a Reynold number regime similar to paper airplanes. 
-In 1999, Mueller showed that cambered plates offer better performance, and
+In 1999, Mueller showed that cambered plates offer better performance than flat plate wings, and
 trailing-edge geometry does not have a strong effect on lift and drag
-for thing wings at low Reynolds numbers.
+for thing wings at low Reynolds numbers. Also many experiments were done to experimentally
+find the lift and drag coefficient of different wing shapes of different aspect ratios.
 
 \section{Stability}
 
@@ -44,4 +46,52 @@ laminar boundary layer seperates from the surface, this results Kelvin
 Helmholtz instability, vortices, and finally a turbulent boundary layer. 
 Because of the instability this transition between turbulence and laminar flow 
 can cause, predicting this location is important in the stability of the flight.
-This transition location also results in hysterisis effects.
+This transition location also results in hysterisis effects. Before separation
+occurs, increasing angle of attack will increase lift. But afterwards,
+decreasing the angle of attack does not return to the same lift.
+
+\begin{enumerate}
+\item For Reynold numbers between 1000 and 10000 the boundary layer flow is laminar
+and doesn't transition into trubulent flow. This type of flight is seen with
+the dragon fly and the house fly. 
+\item  For Reynold numbers between 10000 and 30000 the boundary layer is laminar but
+it can separate. When it separates it does not reattach.
+\item At 30000 to 70000 there are hysterisis effects because of the transition. 
+
+\end{enumerate}
+
+\section{Analytical Models}
+
+In this section we will apply two dimensional flow models to low aspect ratio wings. 
+Let us assume that the wing is thin and has a low aspect ratio. Let the angle of attack
+of the fluid be $\alpha$. We can see that the normal component of the fluid to the
+wing has velocity.
+
+\[V\sin(\alpha)\]
+
+If the angle is small enough this is approximately
+
+\[V\alpha\].
+
+It then follows that the lift force per unit length is just the normal velocity $V\alpha$ times the
+rate of increase of a virtual additional mass. The virtual additional mass comes from the
+added inertia from the fluid moving aaround the immersed object. For a finite line it is known
+that.
+
+\[dm=\frac{\pi}{4}\rho b^2 dx\]
+
+If $\rho$ is the density of the fluid and $b$ and $x$ are the dimensions of the plate.
+
+\[l = V\alpha \od{m}{t} = V^2\alpha \od{m}{x} \]
+
+\[l = \pi \alpha \frac{\rho}{2}V^2 b \od{b}{x} \dif{x} \]
+
+\[l = \pi \alpha \frac{\rho}{2} v^2 b \dif{b} \]
+
+To get the entire lift force we can just integrate across the length of the chord. This
+results in a lift coefficient $C_L$ of
+
+\[ \frac{\pi}{2}AR \alpha \].
+
+Where $AR$ is the aspect ratio.
+

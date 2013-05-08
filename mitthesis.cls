@@ -202,6 +202,7 @@
 
 % If the user wants single spacing, set baselinestretch=1.
 
+\usepackage{commath}
 \usepackage{setspace}
 
 % Note - doublespace.sty has some float-related troubles in
@@ -337,13 +338,13 @@
 \def\chapter{\clearpage\ifodd\c@page\else
    \hbox{}\par\vfill\centerline%
    {THIS PAGE INTENTIONALLY LEFT BLANK}%
-   \vfill\newpage\fi
+   \vfill\fi
    \thispagestyle{plain}	% Page style of chapter page is 'plain'
    \global\@topnum\z@		% Prevents figures from going at top of page.
    \@afterindentfalse		% Suppresses indent in first paragraph.  Change
    \secdef\@chapter\@schapter}	% to \@afterindenttrue to have indent.
 \else
-\def\chapter{\cleardoublepage	% Starts new page.
+\def\chapter{	% Starts new page.
    \thispagestyle{plain}	% Page style of chapter page is 'plain'
    \global\@topnum\z@		% Prevents figures from going at top of page.
    \@afterindentfalse		% Suppresses indent in first paragraph.  Change
@@ -457,7 +458,7 @@ by\par
 % this environment should probably be called abstract,
 % but we want people to also be able to get at the more
 % basic abstract environment
-\def\abstractpage{\cleardoublepage
+\def\abstractpage{
 \begin{center}{\large{\bf \@title} \\
 by \\
 \@author \\[\baselineskip]}
@@ -471,7 +472,7 @@ by \\
 %% page.
 %% Krishna Sethuraman (1990)
 \def\endabstractpage{\end{abstract}\noindent
- \unvcopy\@abstractsupervisor \newpage}
+ \unvcopy\@abstractsupervisor}
 
 %% This counter is used to save the page number for the second copy of
 %% the abstract.
@@ -482,12 +483,12 @@ by \\
 % paragraph skip is infinitely stretchable, so if you leave a blank line
 % between lines that you want space between, the space will stretch so
 % that the title page fills up the entire page.
-\def\titlepage{\cleardoublepage\centering
+\def\titlepage{\centering
   \thispagestyle{empty}
   \parindent 0pt \parskip 10pt plus 1fil minus 1fil
   \def\baselinestretch{1}\@normalsize\vbox to \vsize\bgroup\vbox to 9in\bgroup}
 % The \kern0pt pushes any depth into the height.  Thanks to Richard Stone.
-\def\endtitlepage{\par\kern 0pt\egroup\vss\egroup\newpage}
+\def\endtitlepage{\par\kern 0pt\egroup\vss\egroup}
 
 \def\MIT{MASSACHUSETTS INSTITUTE OF TECHNOLOGY}
 \def\Mit{Massachusetts Institute of Technology}
