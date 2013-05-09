@@ -202,8 +202,10 @@
 
 % If the user wants single spacing, set baselinestretch=1.
 
+\usepackage{ar}
 \usepackage{commath}
 \usepackage{setspace}
+\usepackage{graphicx}
 
 % Note - doublespace.sty has some float-related troubles in
 % combination with graphics or color, and is not officially compliant
