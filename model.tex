@@ -22,6 +22,46 @@ trailing-edge geometry does not have a strong effect on lift and drag
 for thing wings at low Reynolds numbers. Also many experiments were done to experimentally
 find the lift and drag coefficient of different wing shapes of different aspect ratios.
 
+\subsection{Flat Plate model}
+
+One way to model the wings is as a infinite flat plate. Since it is
+an infinite flat plate, we can analyze it with a complex potential in two dimensions.
+By means of conformal mapping, we can collapse a cylinder to a flat plate by
+
+\[Z = z + \frac{a^2}{z}\].
+
+\begin{figure}[hl]
+  \centering
+    \includegraphics[scale=.5]{figures/flatplate1.png}
+    \caption{Flat Plate}
+  \label{fig:dihedraleffect}
+\end{figure}
+
+Now let us consider a flow at an angle $\alpha$. A cylinder with a radius $r$
+would result in a potential
+\[w(z) = Ue^{i\alpha}(z + \frac{a^2}{z}) \]
+After the conformal transformation, we see that the velocity now becomes
+\[u - iv = \od{W}{Z} = \frac{\od{w}{z}}{\od{Z}{z}} = \frac{Ue^{-i\alpha}-Ue^{i\alpha}\frac{a^2}{z^2}
+- \frac{i \Gamma}{2\pi z}}{1 - \frac{a^2}{z^2}}\]
+
+In order to choose $\Gamma$ we must use the fact that the singularity at the trailing edge, 
+$Z=2a$ or $z=a$ must be removed, from the condition. This condition occurs because 
+a boundary layer prevents the flow from turning the sharp corner at the trailing edge.
+The physical solution from complex flow theory depends on frictional forces.
+
+Therefore we can find the circulation.
+
+\[ \Gamma = -4\pi Ua \sin(\alpha) \]
+
+This allows us to find the lift by the Kutta-Joukowski theorem.
+
+\[L = \rho U \Gamma\]
+\begin{equation}
+\label{eq:flat_plat_cl}
+C_L = 2\pi sin(\alpha)
+\end{equation}
+
+
 \subsection{Bollay Models}
 
 The problem with the flat plate in the previous chapter is that it had to assume 

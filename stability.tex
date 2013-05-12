@@ -9,25 +9,37 @@
 
 \subsection{Laminar to Turblent Transition}
 
-The low Reynold number of paper airplane aerodynamics contributes a lot towards the
-stability of the flight.
+Because of the low Reynold number of paper airplane aerodynamics, we have to worry about
+the persistance of the laminar boundary layer.
 The Reynold number of paper airplane flight is on the order of $10^4$.
-Therefore, variations of airfoil characteristics will result in rapid changes in 
-the stability. At low Reynold numbers, the laminar boundary layer has great 
-influence. There is a big difference between turbulent flow and laminar boundary
+There is a big difference between turbulent flow and laminar boundary
 layers. Laminar boundary layer doesn't respond well to an increasing
 pressure gradient in the direction of flow, whereas turbulent flow does.
-However, turbulent flow results in large frictional effects.
+However, turbulent flow results in large frictional effects and can result in stalling.
 
 One aspect of the laminar boundary layer is the location in which it separates from the surface.
 When the laminar boundary layer seperates from the surface, this results Kelvin
 Helmholtz instability, vortices, and finally a turbulent boundary layer. 
 Because of the instability this transition between turbulence and laminar flow 
-can cause, predicting this location is important in the stability of the flight.
+can cause, predicting this location is important in the stability of the flight. 
+
 This transition location also results in hysterisis effects. Before separation
 occurs, increasing angle of attack will increase lift. But afterwards,
 decreasing the angle of attack does not return to the same lift. This effect is
 illustrated in figure~\ref{fig:boundary_layer_transition}.
+
+The transition location is characterized as a separation bubble when the laminar layer
+separates from the surface. After a short distance the turulent layer would reattach.
+At high Reynold numbers the transition region is very short, but for lower Reynold
+numbers, this distance could be long and the turbulent layer might not have the chance
+to reattach. 
+
+One effect of laminar vs turbulence is the skin friction. When the flow is turbulent there
+is a lot more skin friction then when it is laminar. The other side of it is, 
+in terms of lift, maximum
+lift depends on the characteristics of the turbulent boundary layer, because the
+turbulent layer has the ability to recover pressure at the
+rear of the airfoil. 
 
 \begin{figure}[hl]
   \centering
@@ -50,47 +62,7 @@ it can separate. When it separates it does not reattach.
 
 \subsection{Lateral Stability}
 
-\subsubsection{Lateral Forces}
-
-To analyze the lateral stability, we first must know about the lateral forces on the wings.
-For a paper airplane, we can model the wings as a inifinte flat plate. Since it is
-an infinite flat plate, we can analyze it with a complex potential in two dimensions.
-By means of conformal mapping, we can collapse a cylinder to a flat plate by
-
-\[Z = z + \frac{a^2}{z}\].
-
-\begin{figure}[hl]
-  \centering
-    \includegraphics[scale=.5]{figures/flatplate1.png}
-    \caption{Dihedral vs Anhedral wings}
-  \label{fig:dihedraleffect}
-\end{figure}
-
-Now let us consider a flow at an angle $\alpha$. A cylinder with a radius $r$
-would result in a potential
-\[w(z) = Ue^{i\alpha}(z + \frac{a^2}{z}) \]
-After the conformal transformation, we see that the velocity now becomes
-\[u - iv = \od{W}{Z} = \frac{\od{w}{z}}{\od{Z}{z}} = \frac{Ue^{-i\alpha}-Ue^{i\alpha}\frac{a^2}{z^2}
-- \frac{i \Gamma}{2\pi z}}{1 - \frac{a^2}{z^2}}\]
-
-In order to choose $\Gamma$ we must use the fact that the singularity at the trailing edge, 
-$Z=2a$ or $z=a$ must be removed, from the condition. This condition occurs because 
-a boundary layer prevents the flow from turning the sharp corner at the trailing edge.
-The physical solution from complex flow theory depends on frictional forces.
-
-Therefore we can find the circulation.
-
-\[ \Gamma = -4\pi Ua \sin(\alpha) \]
-
-This allows us to find the lift by the Kutta-Joukowski theorem.
-
-\[L = \rho U \Gamma\]
-\begin{equation}
-\label{eq:flat_plat_cl}
-C_L = 2\pi sin(\alpha)
-\end{equation}
-
-\subsection{Dihedral vs Anhedral}
+\subsubsection{Dihedral vs Anhedral}
 
 Dihedral and anhedral refer to the angle between the wings and the horizontal plane.
 Dihedral wings means that the wings point upwards, and the anhedral wings means the wings point
@@ -147,7 +119,5 @@ $\alpha$ is
 the angle of attack and $\beta$ is a constant. For small angles it is 
 approximately $2\pi(\alpha)$. So the left wing will exerience a downward force
 and the right wing will experience an upwards force, straightning the plane out.
-
-
 
 
