@@ -106,6 +106,7 @@ the angle that the wings make with the horizontal is $\theta$ then after factori
 the banked angle, the right wing has an angle of attack of  $\theta - \phi$.
 The left wing has an angle of attack $- \theta - \phi$.
 
+
 \begin{figure}[hl]
   \centering
     \includegraphics[scale=.5]{figures/dihedral2.png}
@@ -120,4 +121,99 @@ the angle of attack and $\beta$ is a constant. For small angles it is
 approximately $2\pi(\alpha)$. So the left wing will exerience a downward force
 and the right wing will experience an upwards force, straightning the plane out.
 
+\subsection{Longitudinal Stability}
+
+\subsubsection{Aerodynamic Center}
+
+The Aerodynamic Center is the location where the pitching moment doesn't
+change with the angle of attack. 
+
+In order to calculate it first we will show how to 
+find moments at different locations given one moment. 
+Let us say we know the moment of the plane, $M_{ref}$ at some
+location $x_{ref}$. Also, as an approximation, we can also say that the upwards force
+is the lift and the horizontal force is the drag. We would like to find the moment
+at some $x_{new}$, $M_{new}$. Let us assume that the z dimension does not contribute.
+
+\[M_{ref} = -(x_{new} - x_{ref})L + M{new} \] 
+
+because $-(x_{new} - x_{ref})L$ is the torque. We can convert this equation into their
+respective coefficients, the pitching moment coefficient, and the lift coeffiient.
+
+\[C_{m_{ref}} = - ( \frac{x_{new} - x_{ref}}{c})C_L + C_{m_{new}} \]
+
+Where $c$ is the average chord length.
+
+Next let us let $M_{new}$ be the moment about the aerodynamic center and
+differentiate with respect to $\alpha$.
+
+\[\od{C_{M_{ref}}}{\alpha} = - (\frac{x_{ac} - x_{ref}}{c}\od{C_L}{\alpha}) + (\od{C_{M_{ac}}}{\alpha})\].
+
+By definition 
+\[\od{C_{M_{ac}}}{\alpha} = 0\]
+
+Therefore we can solve for $x_ac$ and we obtain:
+
+\[\frac{x_{ac} - x_{ref}}{c} = \frac{x_{ref}}{c} - (\od{C_{M_{ref}}}{C_L})\]
+
+Therefore, if we know the moment at one point, we can figure out the derivative 
+$\od{C_{M_{ref}}}{C_L}$. It has been found theoretically that this moment
+occurs at a quarter of a chord back from the leading edge on most airfoils ~\cite{NASAac}.
+
+
+
+\subsection{Wing Stability}
+Let $\alpha$ be the angle with the horizontal. Also,
+$C_M$ be the moment at the center of gravity.  In order for a plane to have static
+stability:
+
+\begin{equation}
+C_M = 0
+\end{equation}
+\begin{equation}
+\od{C_M}{\alpha} < 0
+\label{eq:long_stability}
+\end{equation}
+
+As we have shown in our models, the lift coeffient is a linear function of $\alpha$, therefore
+we can conclude that the condition is:
+
+\[\od{C_M}{C_L} < 0 \]
+
+To figure out the moment of the plane we start by figuring out the moment of the wings.
+There are only two forces on the wings, the lift force and the drag force. Let us say
+that the angle of attack is $\alpha_{FRL}$ to the plane as shown in the picture below 
+FIgure~\ref{fig:longitudinal_stability1}.
+
+\begin{figure}[hl]
+  \centering
+    \includegraphics[scale=.5]{figures/longitudinal_stability1.png}
+    \caption{Longitudinal Wing Stability}
+  \label{fig:longitudinal_stability1}
+\end{figure}
+
+From the formula from the previous section, we see that 
+
+\[M_{cg}  = (L\cos(\alpha_{FRL}) + D\sin(\alpha_{FRL}))(x_{cg} - x_{ac}) + M_{ac}\]
+
+Again we will assume that the z component does not contribute. Then we change it into
+coefficient form once more and use a small angle approximation.
+
+\[ C_{M_{cg}} = (C_{L} + C_D \alpha_{FRL}) (\frac{x_{cg}}{c} - \frac{x_{ac}}{c}) + C_{M_{ac}} \]
+
+Because $\alpha_{FRL}$ is small we can approximate $C_{M_{cg}}$ as
+
+\[C_L (\frac{x_{cg}}{c} - \frac{x_{ac}}{c}) + C_{M_{ac}} \]
+
+Because the aerodynamic center has no dependence on $\alpha_{FRL}$ we can rewrite the
+stabiltiy equation as:
+
+\[\od{C_{M_{cg}}}{C_L} = \frac{x_{cg}}{c} - \frac{x_{ac}}{c} < 0\]
+
+Therefore, the further back from the aerodynamic center the center of gravity is, the
+more stable it is.
+
+
+\subsection{Tail Stability}
+              
 
