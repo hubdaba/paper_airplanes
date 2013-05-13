@@ -65,38 +65,15 @@ are summarized in Figure~\ref{fig:angles}.
 
 \begin{figure}[hl]
 	\centering
-		\includegraphics[scale=0.5]{figures/angles.png}
+		\includegraphics{figures/angles.png}
 		\caption{Flight distance and stability at different wing angles.}
 	\label{fig:angles}
 \end{figure}
 
 The data demonstrate that as the wing angle transitions from dihydral to anhydral, the flight becomes shorter and less stable. This supports the prediction in section XXX. 
 
-\subsection{Flight Distance vs Aspect Ratio}
-
-To explore the relation between flight range and aspect ratio, we constructed five The Arrows with different wing span and length. We achieved this by using paper of
-different dimension but the same area. As a result, all five paper airplanes have same weight but different aspect ratios. We then launched each of them at the
-same height and speed, and recorded the flight distance. To reduce measurement noise, we tested each paper airplane ten times and calculated the average value. See Figure~\ref{fig:aspectratio} 
-for the result. 
-
-\begin{figure}[hl]
-	\centering
-		\includegraphics[scale=0.5]{figures/aspectratio.png}
-		\caption{The Arrows with different aspect ratios and same weight.}
-	\label{fig:aspectratio}
-\end{figure}
-
-\begin{figure}[hl]
-	\centering
-		\includegraphics[scale=0.5]{figures/aspectratioresult.png}
-		\caption{Flight distance v.s. aspect ratios. The launching height and speed were XXX and XXX, respecitvely. The airplanes weighed XXX g.}
-	\label{fig:aspectratioresult}
-\end{figure}
-
-
-
-The result supports the predictions in section XXX. As aspect ratio increases, the flight becomes XXX and XXX. It's worth noticing that when the aspect ratio is larger than XXX, we observed a flapping motion of the wing. The flight became very unstable and the data were ignored.
-
+\subsection{Laminar-Turbulent Flow Transition}
+aa
 \subsection{Drag vs Lift Coefficient}
 aa
 \subsection{A Comparison of Different Paper Airplane Models}
