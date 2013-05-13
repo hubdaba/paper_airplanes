@@ -9,25 +9,37 @@
 
 \subsection{Laminar to Turblent Transition}
 
-The low Reynold number of paper airplane aerodynamics contributes a lot towards the
-stability of the flight.
+Because of the low Reynold number of paper airplane aerodynamics, we have to worry about
+the persistance of the laminar boundary layer.
 The Reynold number of paper airplane flight is on the order of $10^4$.
-Therefore, variations of airfoil characteristics will result in rapid changes in 
-the stability. At low Reynold numbers, the laminar boundary layer has great 
-influence. There is a big difference between turbulent flow and laminar boundary
+There is a big difference between turbulent flow and laminar boundary
 layers. Laminar boundary layer doesn't respond well to an increasing
 pressure gradient in the direction of flow, whereas turbulent flow does.
-However, turbulent flow results in large frictional effects.
+However, turbulent flow results in large frictional effects and can result in stalling.
 
 One aspect of the laminar boundary layer is the location in which it separates from the surface.
 When the laminar boundary layer seperates from the surface, this results Kelvin
 Helmholtz instability, vortices, and finally a turbulent boundary layer. 
 Because of the instability this transition between turbulence and laminar flow 
-can cause, predicting this location is important in the stability of the flight.
+can cause, predicting this location is important in the stability of the flight. 
+
 This transition location also results in hysterisis effects. Before separation
 occurs, increasing angle of attack will increase lift. But afterwards,
 decreasing the angle of attack does not return to the same lift. This effect is
 illustrated in figure~\ref{fig:boundary_layer_transition}.
+
+The transition location is characterized as a separation bubble when the laminar layer
+separates from the surface. After a short distance the turulent layer would reattach.
+At high Reynold numbers the transition region is very short, but for lower Reynold
+numbers, this distance could be long and the turbulent layer might not have the chance
+to reattach. 
+
+One effect of laminar vs turbulence is the skin friction. When the flow is turbulent there
+is a lot more skin friction then when it is laminar. The other side of it is, 
+in terms of lift, maximum
+lift depends on the characteristics of the turbulent boundary layer, because the
+turbulent layer has the ability to recover pressure at the
+rear of the airfoil. 
 
 \begin{figure}[hl]
   \centering
@@ -50,47 +62,7 @@ it can separate. When it separates it does not reattach.
 
 \subsection{Lateral Stability}
 
-\subsubsection{Lateral Forces}
-
-To analyze the lateral stability, we first must know about the lateral forces on the wings.
-For a paper airplane, we can model the wings as a inifinte flat plate. Since it is
-an infinite flat plate, we can analyze it with a complex potential in two dimensions.
-By means of conformal mapping, we can collapse a cylinder to a flat plate by
-
-\[Z = z + \frac{a^2}{z}\].
-
-\begin{figure}[hl]
-  \centering
-    \includegraphics[scale=.5]{figures/flatplate1.png}
-    \caption{Dihedral vs Anhedral wings}
-  \label{fig:dihedraleffect}
-\end{figure}
-
-Now let us consider a flow at an angle $\alpha$. A cylinder with a radius $r$
-would result in a potential
-\[w(z) = Ue^{i\alpha}(z + \frac{a^2}{z}) \]
-After the conformal transformation, we see that the velocity now becomes
-\[u - iv = \od{W}{Z} = \frac{\od{w}{z}}{\od{Z}{z}} = \frac{Ue^{-i\alpha}-Ue^{i\alpha}\frac{a^2}{z^2}
-- \frac{i \Gamma}{2\pi z}}{1 - \frac{a^2}{z^2}}\]
-
-In order to choose $\Gamma$ we must use the fact that the singularity at the trailing edge, 
-$Z=2a$ or $z=a$ must be removed, from the condition. This condition occurs because 
-a boundary layer prevents the flow from turning the sharp corner at the trailing edge.
-The physical solution from complex flow theory depends on frictional forces.
-
-Therefore we can find the circulation.
-
-\[ \Gamma = -4\pi Ua \sin(\alpha) \]
-
-This allows us to find the lift by the Kutta-Joukowski theorem.
-
-\[L = \rho U \Gamma\]
-\begin{equation}
-\label{eq:flat_plat_cl}
-C_L = 2\pi sin(\alpha)
-\end{equation}
-
-\subsection{Dihedral vs Anhedral}
+\subsubsection{Dihedral vs Anhedral}
 
 Dihedral and anhedral refer to the angle between the wings and the horizontal plane.
 Dihedral wings means that the wings point upwards, and the anhedral wings means the wings point
@@ -134,6 +106,7 @@ the angle that the wings make with the horizontal is $\theta$ then after factori
 the banked angle, the right wing has an angle of attack of  $\theta - \phi$.
 The left wing has an angle of attack $- \theta - \phi$.
 
+
 \begin{figure}[hl]
   \centering
     \includegraphics[scale=.5]{figures/dihedral2.png}
@@ -148,6 +121,96 @@ the angle of attack and $\beta$ is a constant. For small angles it is
 approximately $2\pi(\alpha)$. So the left wing will exerience a downward force
 and the right wing will experience an upwards force, straightning the plane out.
 
+\subsection{Longitudinal Stability}
+
+\subsubsection{Aerodynamic Center}
+
+The Aerodynamic Center is the location where the pitching moment doesn't
+change with the angle of attack. 
+
+In order to calculate it first we will show how to 
+find moments at different locations given one moment. 
+Let us say we know the moment of the plane, $M_{ref}$ at some
+location $x_{ref}$. Also, as an approximation, we can also say that the upwards force
+is the lift and the horizontal force is the drag. We would like to find the moment
+at some $x_{new}$, $M_{new}$. Let us assume that the z dimension does not contribute.
+
+\[M_{ref} = -(x_{new} - x_{ref})L + M{new} \] 
+
+because $-(x_{new} - x_{ref})L$ is the torque. We can convert this equation into their
+respective coefficients, the pitching moment coefficient, and the lift coeffiient.
+
+\[C_{m_{ref}} = - ( \frac{x_{new} - x_{ref}}{c})C_L + C_{m_{new}} \]
+
+Where $c$ is the average chord length.
+
+Next let us let $M_{new}$ be the moment about the aerodynamic center and
+differentiate with respect to $\alpha$.
+
+\[\od{C_{M_{ref}}}{\alpha} = - (\frac{x_{ac} - x_{ref}}{c}\od{C_L}{\alpha}) + (\od{C_{M_{ac}}}{\alpha})\].
+
+By definition 
+\[\od{C_{M_{ac}}}{\alpha} = 0\]
+
+Therefore we can solve for $x_ac$ and we obtain:
+
+\[\frac{x_{ac} - x_{ref}}{c} = \frac{x_{ref}}{c} - (\od{C_{M_{ref}}}{C_L})\]
+
+Therefore, if we know the moment at one point, we can figure out the derivative 
+$\od{C_{M_{ref}}}{C_L}$. It has been found theoretically that this moment
+occurs at a quarter of a chord back from the leading edge on most airfoils ~\cite{NASAac}.
 
 
+
+\subsection{Wing Stability}
+Let $\alpha$ be the angle with the horizontal. Also,
+$C_M$ be the moment at the center of gravity.  In order for a plane to have static
+stability:
+
+\begin{equation}
+C_M = 0
+\end{equation}
+\begin{equation}
+\od{C_M}{\alpha} < 0
+\label{eq:long_stability}
+\end{equation}
+
+As we have shown in our models, the lift coeffient is a linear function of $\alpha$, therefore
+we can conclude that the condition is:
+
+\[\od{C_M}{C_L} < 0 \]
+
+To figure out the moment of the plane we start by figuring out the moment of the wings.
+There are only two forces on the wings, the lift force and the drag force. Let us say
+that the angle of attack is $\alpha_{FRL}$ to the plane as shown in the picture below 
+FIgure~\ref{fig:longitudinal_stability1}.
+
+\begin{figure}[hl]
+  \centering
+    \includegraphics[scale=.5]{figures/longitudinal_stability1.png}
+    \caption{Longitudinal Wing Stability}
+  \label{fig:longitudinal_stability1}
+\end{figure}
+
+From the formula from the previous section, we see that 
+
+\[M_{cg}  = (L\cos(\alpha_{FRL}) + D\sin(\alpha_{FRL}))(x_{cg} - x_{ac}) + M_{ac}\]
+
+Again we will assume that the z component does not contribute. Then we change it into
+coefficient form once more and use a small angle approximation.
+
+\[ C_{M_{cg}} = (C_{L} + C_D \alpha_{FRL}) (\frac{x_{cg}}{c} - \frac{x_{ac}}{c}) + C_{M_{ac}} \]
+
+Because $\alpha_{FRL}$ is small we can approximate $C_{M_{cg}}$ as
+
+\[C_L (\frac{x_{cg}}{c} - \frac{x_{ac}}{c}) + C_{M_{ac}} \]
+
+Because the aerodynamic center has no dependence on $\alpha_{FRL}$ we can rewrite the
+stabiltiy equation as:
+
+\[\od{C_{M_{cg}}}{C_L} = \frac{x_{cg}}{c} - \frac{x_{ac}}{c} < 0\]
+
+Therefore, the further back from the aerodynamic center the center of gravity is, the
+more stable it is.
+              
 
