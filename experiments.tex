@@ -2,46 +2,54 @@
 
 \subsection{The Arrow}
 
-To perform the experiments, we constructed ``The Arrow" paper airplanes using half a sheet of GP Spectrum A4 Multi-Use paper, 
-which is 0.103mm thick and 4.6 gram in weight. See Figure~\ref{fig:arrow} for a picture of The Arrow. The Arrow was chosen because
-of its simple and rigid structure. We spent around two minutes to fold it from scratch. Due to The Arrow's relatively 
-wing aspect ratio, it experiences minimal flapping motion during flight. As a result, the actual 
-flight condition better resembles what is assumed in the theory. We also applied double-sided tape in the middle section to improve its rigidity.
+To perform the experiments, we chose to use a paper airplane model called ``The Arrow". See Figure~\ref{fig:arrow} for a picture of The Arrow. 
+We chose The Arrow because it required easy construction and had a rigid structure. Due to The Arrow's relatively small wing aspect ratio, it experiences minimal 
+flapping motion during flight. As a result, the actual flight condition better resembles what is assumed in the theory. We also applied 
+double-sided tape in the middle section to improve its rigidity. We constructed three The Arrows in order to reduce any model-specific
+errors, and all experimental results came from an average of these three models. See Figure~\ref{fig:arrowdimension} for the detailed dimension measurements of the three models we used. 
 
 \begin{figure}[hl]
   \centering
-    \includegraphics[scale=0.5]{figures/arrow.png}
+    \includegraphics[scale=0.6]{figures/arrow.png}
     \caption{A picture of The Arrow. It is one of the most common paper airplane models. It has a long flight range and 
 		         is easy to construct.}
   \label{fig:arrow}
 \end{figure}
 
-The Arrow measures $10000$mm in length and $100000$mm in width, and has a narrow delta wing shape. See Figure~\ref{fig:arrowdimension} for the detailed
-dimension measurements. All launches were conducted
-manually and an iPhone application was developed to record the launching speed.
+
  
 \begin{figure}[hl]
   \centering
-    \includegraphics[scale=0.5]{figures/arrowdimension.png}
+    \includegraphics[scale=0.6]{figures/arrowdimension.png}
     \caption{Dimension of The Arrow used in the experiments. The measurements apply to all three models constructed.}
   \label{fig:arrowdimension}
 \end{figure}
 
+We launched the paper airplanes manually, and used an iPhone application to record the launching acceleration (see appendix for the source code). To maintain consistency during launch, the paper airplane started right above the launcher's shoulder and was released when the launcher's arm was fully extended. The launching height was measured to be 146cm and the launching distance was measured to be 60cm. Knowing the launching distance and acceleration, we could calculate the releasing speed using the following two simple mechanics equations:
 
+\begin{equation}
+	\label{kinematics1}
+		d = 1/2 a t^2
+\end{equation}
+
+\begin{equation}
+	\label{kinematics2}
+		v = a t
+\end{equation}		
+
+	
 \subsection{Stability vs Center of Gravity}
-We attached a metal clip $100$g in weight to various positions in the middle section of The Arrow to shift its center 
-of gravity (see Figure~\ref{fig:clip}).
+We attached a metal clip of 2.9g to various positions in the middle section of the paper airplanes in order to shift its center of gravity (see Figure~\ref{fig:clip}).
+
 
 \begin{figure}[hl]
 	\centering
 		\includegraphics[scale=0.5]{figures/clip.png}
-		\caption{We attached a clip of $100$g in weight to various positions of the paper airplane to shift its center of gravity.}
+		\caption{We attached a clip of 2.9g to various positions of the paper airplane to shift its center of gravity.}
 	\label{fig:clip}
 \end{figure}
 
-Since the metal clip was significantly heavier than the paper airplane, we could reasonably assume the position of the clip
-corresponded to the position of center of gravity. We then launched The Arrow at preset height and speed. To measure its stability, we counted the 
-number of rotations the model had completed in the air and the distance it had traveled. A stable flight should have a long travel distance and minimal rotations.
+We then launched The Arrow in the manner described in section 4.1. To measure its stability, we counted the number of rotations the model had completed in the air and the distance it had traveled when landed. A stable flight should have a long travel distance and minimal rotations.
 Figure~\ref{fig:centerofgravity} shows the experimental result. 
 
 
