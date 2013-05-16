@@ -11,44 +11,39 @@
 
 Because of the low Reynold number of paper airplane aerodynamics, we have to worry about
 the persistance of the laminar boundary layer.
-The Reynold number of paper airplane flight is on the order of $10^4$.
 There is a big difference between turbulent flow and laminar boundary
 layers. Laminar boundary layer doesn't respond well to an increasing
 pressure gradient in the direction of flow, whereas turbulent flow does.
 However, turbulent flow results in large frictional effects and can result in stalling.
+This effect is illustrated in figure~\ref{fig:boundary_layer_transition}.
+
+\begin{figure}[hl]
+  \centering
+    \includegraphics[scale=.5]{figures/boundary_layer_transition.png}
+    \caption{This is the illustration of the transition from laminar to turbulent flow on the
+    surface of an airplane. This transition is important in the design of a plane flying in
+    Low Reynolds Number flow.}
+  \label{fig:boundary_layer_transition}
+\end{figure}
 
 One aspect of the laminar boundary layer is the location in which it separates from the surface.
-When the laminar boundary layer seperates from the surface, this results Kelvin
-Helmholtz instability, vortices, and finally a turbulent boundary layer. 
+This transition region has many stages. At the first stage, unstable two-dimensional Tollmien Schlichting
+waves are developed and start to move downstream. As it moves downstream, the waves become three directional
+and vortical structures are formed. Finally this leads to turbulent flow.
 Because of the instability this transition between turbulence and laminar flow 
-can cause, predicting this location is important in the stability of the flight. 
-
+can cause, predicting this location is important in the stability and other properties of the flight. 
 This transition location also results in hysterisis effects. Before separation
 occurs, increasing angle of attack will increase lift. But afterwards,
-decreasing the angle of attack does not return to the same lift. This effect is
-illustrated in figure~\ref{fig:boundary_layer_transition}.
-
-The transition location is characterized as a separation bubble when the laminar layer
-separates from the surface. After a short distance the turulent layer would reattach.
-At high Reynold numbers the transition region is very short, but for lower Reynold
-numbers, this distance could be long and the turbulent layer might not have the chance
-to reattach. 
+decreasing the angle of attack does not return to the same lift. 
 
 One effect of laminar vs turbulence is the skin friction. When the flow is turbulent there
 is a lot more skin friction then when it is laminar. The other side of it is, 
 in terms of lift, maximum
 lift depends on the characteristics of the turbulent boundary layer, because the
 turbulent layer has the ability to recover pressure at the
-rear of the airfoil. 
+rear of the airfoil.
 
-\begin{figure}[hl]
-  \centering
-    \includegraphics[scale=.5]{figures/boundary_layer_transition.png}
-    \caption{Illustration of the boundary layer process}
-  \label{fig:boundary_layer_transition}
-\end{figure}
-
-
+Here are some Reynold number regimes for different boundary layers ~\cite{mueller}.
 
 \begin{enumerate}
 \item For Reynold numbers between 1000 and 10000 the boundary layer flow is laminar
@@ -63,6 +58,7 @@ it can separate. When it separates it does not reattach.
 \subsection{Lateral Stability}
 
 \subsubsection{Dihedral vs Anhedral}
+\label{sec:dihedral}
 
 Dihedral and anhedral refer to the angle between the wings and the horizontal plane.
 Dihedral wings means that the wings point upwards, and the anhedral wings means the wings point
@@ -82,7 +78,7 @@ banked, this results in a rolling moment, called the dihedral effect. If the
 rolling moment opposes the bank, the dihedral effect is positive. In order for
 there to be stability, the dihedral effect needs to be positive. There are many
 different factors that can contribute to the dihedral effect: the shape of the wings,
-the wing placement, tail height, etc. 
+the wing placement, tail height, etc. We will analyze the angle of the wings in this paper.
 
 To analyze this effect in more detail we will show that a dihedral aircraft has 
 a positive dihedral effect. When the aircraft is banked we see that there is a net force
@@ -99,12 +95,21 @@ contribute to the dihedral effect yet.
 \end{figure}
 
 At this point, with respect to the plane's frame of reference, there is air flowing 
-to the side that will contribute to a dihedral effect. However, we see that for the
-corresponding anhedral plane, the bottom wing would be affected more by the air, causing
-a negative dihedral effect (Figure~\ref{fig:dihedral2}). If the bank angle is $\phi$ and
+to the side that will contribute to a dihedral effect. 
+If the bank angle is $\phi$ and
 the angle that the wings make with the horizontal is $\theta$ then after factoring in
 the banked angle, the right wing has an angle of attack of  $\theta - \phi$.
 The left wing has an angle of attack $- \theta - \phi$.
+From our discussions of models of wings of airplane, we can say that the
+coefficient of lift is approximately $\beta \sin(\alpha 0 \alpha_o)$.
+$\alpha$ is the angle of attack and $\beta$ is a constant. To test the stability of the plane
+let us assume that $|\phi| < |\theta|$.
+So if we assume that $theta$ is positive , so that the airplane is dihedral.
+So the left wing will experience a downward force because of a negative angle of attack
+and the right wing will experience an upwards force because of a positive angle of attack, straightning the plane out.
+However, if $theta$ is negative, and the plane is anhedral, the right wing will experience a
+downwards force, and the left wing will experience an upwards force, increasing its lateral moment
+(Figure~\ref{fig:dihedral2}). 
 
 
 \begin{figure}[hl]
@@ -114,18 +119,13 @@ The left wing has an angle of attack $- \theta - \phi$.
   \label{fig:dihedral2}
 \end{figure}
 
-If we assume that the wings are approximate flat plates, we can say that the
-coefficient of lift is approximately $2\pi\sin(\alpha)$ as shown in Equation~\ref{flat_plate_cl}. 
-$\alpha$ is
-the angle of attack and $\beta$ is a constant. For small angles it is 
-approximately $2\pi(\alpha)$. So the left wing will exerience a downward force
-and the right wing will experience an upwards force, straightning the plane out.
 
 \subsection{Longitudinal Stability}
+\label{sec:long_stability}
 
 \subsubsection{Aerodynamic Center}
 
-The Aerodynamic Center is the location where the pitching moment doesn't
+The Aerodynamic Center is the location on the plane where the pitching moment doesn't
 change with the angle of attack. 
 
 In order to calculate it first we will show how to 
@@ -133,7 +133,8 @@ find moments at different locations given one moment.
 Let us say we know the moment of the plane, $M_{ref}$ at some
 location $x_{ref}$. Also, as an approximation, we can also say that the upwards force
 is the lift and the horizontal force is the drag. We would like to find the moment
-at some $x_{new}$, $M_{new}$. Let us assume that the z dimension does not contribute.
+at some $x_{new}$, $M_{new}$. Let us assume that the z dimension does not contribute to the
+calculations because the airplane is pretty  is thin.
 
 \[M_{ref} = -(x_{new} - x_{ref})L + M{new} \] 
 
@@ -156,7 +157,7 @@ Therefore we can solve for $x_ac$ and we obtain:
 
 \[\frac{x_{ac} - x_{ref}}{c} = \frac{x_{ref}}{c} - (\od{C_{M_{ref}}}{C_L})\]
 
-Therefore, if we know the moment at one point, we can figure out the derivative 
+Therefore, if we know the moment at one point, and we can figure out the derivative 
 $\od{C_{M_{ref}}}{C_L}$. It has been found theoretically that this moment
 occurs at a quarter of a chord back from the leading edge on most airfoils ~\cite{NASAac}.
 
@@ -182,7 +183,7 @@ we can conclude that the condition is:
 
 To figure out the moment of the plane we start by figuring out the moment of the wings.
 There are only two forces on the wings, the lift force and the drag force. Let us say
-that the angle of attack is $\alpha_{FRL}$ to the plane as shown in the picture below 
+that the angle between the air flow and the airplane is $\alpha_{FRL}$ to the plane as shown in the picture below 
 FIgure~\ref{fig:longitudinal_stability1}.
 
 \begin{figure}[hl]
@@ -194,23 +195,25 @@ FIgure~\ref{fig:longitudinal_stability1}.
 
 From the formula from the previous section, we see that 
 
-\[M_{cg}  = (L\cos(\alpha_{FRL}) + D\sin(\alpha_{FRL}))(x_{cg} - x_{ac}) + M_{ac}\]
+\[M_{cg}  = -(L\cos(\alpha_{FRL}) + D\sin(\alpha_{FRL}))(x_{cg} - x_{ac}) + M_{ac}\]
 
 Again we will assume that the z component does not contribute. Then we change it into
 coefficient form once more and use a small angle approximation.
 
-\[ C_{M_{cg}} = (C_{L} + C_D \alpha_{FRL}) (\frac{x_{cg}}{c} - \frac{x_{ac}}{c}) + C_{M_{ac}} \]
+\[ C_{M_{cg}} = -(C_{L} + C_D \alpha_{FRL}) (\frac{x_{cg}}{c} - \frac{x_{ac}}{c}) + C_{M_{ac}} \]
 
 Because $\alpha_{FRL}$ is small we can approximate $C_{M_{cg}}$ as
 
-\[C_L (\frac{x_{cg}}{c} - \frac{x_{ac}}{c}) + C_{M_{ac}} \]
+\[-C_L (\frac{x_{cg}}{c} - \frac{x_{ac}}{c}) + C_{M_{ac}} \]
 
 Because the aerodynamic center has no dependence on $\alpha_{FRL}$ we can rewrite the
 stabiltiy equation as:
 
-\[\od{C_{M_{cg}}}{C_L} = \frac{x_{cg}}{c} - \frac{x_{ac}}{c} < 0\]
+\[\od{C_{M_{cg}}}{C_L} = - \frac{x_{cg}}{c} + \frac{x_{ac}}{c} < 0\]
 
-Therefore, the further back from the aerodynamic center the center of gravity is, the
-more stable it is.
+Therefore, the bigger $x_{cg}$ is the more stable the plane is. By our choice of coordinate system,
+this means that the center of mass of the plane has to be in front of the aerodynamic center for it to have
+longitudinal stability.
+
               
 

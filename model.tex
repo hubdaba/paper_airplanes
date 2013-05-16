@@ -6,15 +6,15 @@ the chord is small. Commertial aircrafts typically have high aspect ratio wings
 to increase the amount of lift on the aircraft, but there are benefits of having
 low aspect wings. Low aspect ratio aircrafts need to deal with less bending
 stress because the wings are shorter. Also, the drag due to surface friction is
-smaller because of the lower Reynold number because of the bigger lengthscale.
+smaller because of the lower Reynold number from the bigger lengthscale.
 For paper airplanes, low aspect ratio wings are definitely better than high
-aspect ratio wings because there is no way for paper to overcome the
+aspect ratio wings because paper can't overcome the
 bending stress.
 
 
 \subsection{Previous Research}
 
-A lot of research about the lift and drag  were done in the form of
+A lot of research about the lift and drag of wings with low aspect ratios  were done in the form of
 micro-air vechicle research. This has the most relevance with paper airplanes because
 micro-air vehicles operate on a Reynold number regime similar to paper airplanes. 
 In 1999, Mueller showed that cambered plates offer better performance than flat plate wings, and
@@ -24,7 +24,8 @@ find the lift and drag coefficient of different wing shapes of different aspect 
 
 \subsection{Flat Plate model}
 
-One way to model the wings is as a infinite flat plate. Since it is
+One way to model the wings is as a flat plane that is infinite in length. This corresonds to
+an aspect ratio of zero. Since it is
 an infinite flat plate, we can analyze it with a complex potential in two dimensions.
 By means of conformal mapping, we can collapse a cylinder to a flat plate by
 
@@ -45,7 +46,7 @@ After the conformal transformation, we see that the velocity now becomes
 - \frac{i \Gamma}{2\pi z}}{1 - \frac{a^2}{z^2}}\]
 
 In order to choose $\Gamma$ we must use the fact that the singularity at the trailing edge, 
-$Z=2a$ or $z=a$ must be removed, from the condition. This condition occurs because 
+$Z=2a$ or $z=a$ must be removed, from the Kutta condition. This condition occurs because 
 a boundary layer prevents the flow from turning the sharp corner at the trailing edge.
 The physical solution from complex flow theory depends on frictional forces.
 
@@ -61,20 +62,22 @@ This allows us to find the lift by the Kutta-Joukowski theorem.
 C_L = 2\pi sin(\alpha)
 \end{equation}
 
-
 \subsection{Bollay Models}
 
 The problem with the flat plate in the previous chapter is that it had to assume 
-an aspect ratio of about zero in order to model it in that fasion. However, we can still
-use the fact that the aspect ratio is small the model it in a different fashion.
+an aspect ratio of about zero in order to model it in that fashion. However, we can still
+use the fact that the aspect ratio is small the model it in a similar fashion.
 Let us assume that the wing is thin and has a low aspect ratio. Let the angle of attack
- be $\alpha$. We can see that the normal component of the air
-will have velocity. This is depicted in Figure~\ref{fig:bollay1}
+ be $\alpha$ and the velocity of the flow relative to the wing be $v$. 
+ We can see that the normal component of the air
+will have velocity $V\sin(\theta)$. Because the aspect ratio is low
+we can model the flow around the wing like the flat plate model above.
+This is depicted in Figure~\ref{fig:bollay1}
 
 \begin{figure}[hl]
   \centering
     \includegraphics[scale=1]{figures/bollay1.png}
-    \caption{normal component of air}
+    \caption{normal component of air. Figure adapted from~\cite{bollay}}
   \label{fig:bollay1}
 \end{figure}
 
@@ -88,10 +91,11 @@ If the angle is small enough this is approximately
 
 It then follows that the lift force per unit length is just the normal velocity $V\alpha$ times the
 rate of increase of a virtual additional mass. The virtual additional mass comes from the
-added inertia from the fluid moving around the immersed object. For a thin line it is known
-that.
+added inertia from the fluid moving around the immersed object. From~\cite{jones} it is know that.
 
-\[dm=\frac{\pi}{4}\rho b^2 dx\]
+\begin{equation}
+dm=\frac{\pi}{4}\rho b^2 dx
+\end{equation}
 
 If $\rho$ is the density of the fluid and $b$ and $x$ are the dimensions of the plate.
 
@@ -101,16 +105,19 @@ If $\rho$ is the density of the fluid and $b$ and $x$ are the dimensions of the 
 
 \[l = \pi \alpha \frac{\rho}{2} V^2 b \dif{b} \]
 
-To get the entire lift force we can just integrate across the length of the chord. 
-If the wings are rectangular than the result is:
+To get the entire lift force we can just integrate across the width of the wake. 
 
 \[L = \frac{\pi \alpha \rho V^2 b_{max}}{4} \]
 
 This results in a lift coefficient $C_L$ of
 
-\[ \frac{\pi}{2} \AR \alpha \].
+\begin{equation}
+ \frac{\pi}{2} \AR \alpha 
+ \label{eq:bollay_model}
+ \end{equation}
 
-Where $\AR$ is the aspect ratio.
+Where $\AR$ is the aspect ratio. In the experiments section we will test whether or not the aspect ratio
+would actually affect the lift coefficient.
 
 
 
