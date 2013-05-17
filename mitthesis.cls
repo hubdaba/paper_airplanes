@@ -206,6 +206,7 @@
 \usepackage{commath}
 \usepackage{setspace}
 \usepackage{graphicx}
+\usepackage{listings}
 
 % Note - doublespace.sty has some float-related troubles in
 % combination with graphics or color, and is not officially compliant
