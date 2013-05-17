@@ -451,6 +451,8 @@ reserved.\par\permission}}
 %% `upcase' documentclass option: \choosecase is defined either as a dummy or
 %% a macro to change the (expanded) argument to uppercase.
 \def\maketitle{\begin{titlepage}
+\includegraphics[scale=0.15]{figures/title.jpg}
+\par
 \large
 {\def\baselinestretch{1.2}\Large\bf \choosecase{\@title} \par}
 by\par
